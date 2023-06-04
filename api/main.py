@@ -11,7 +11,7 @@ import psycopg2
 app = Flask(__name__)
 # cors = CORS(app,resources={r'/api/*':{'origins':'https://anime-link-gen.vercel.app'}})
 cors = CORS(app,resources={r'/api/*':{'origins':'*'}})
-connection = psycopg2.connect('postgres://tdniskpf:B6ofcP6xkK2_tNB4h66RVOOts5CY4O6F@arjuna.db.elephantsql.com/tdniskpf')
+connection = psycopg2.connect(os.environ.get('DB_URL'))
 create_table = ("CREATE TABLE IF NOT EXISTS data(id text primary key,gogoid Text,source Text,totaleps Text,downloadlinks Text);")
 
 @app.route('/')
