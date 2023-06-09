@@ -2,7 +2,7 @@ import requests as req
 from bs4 import BeautifulSoup
 import re
 
-BASE_URL = 'https://gogoanime.so/'  # Change this if this link to gogoanime goes down
+BASE_URL = 'https://www3.gogoanimes.fi'  # Change this if this link to gogoanime goes down
 
 def _validifyName_(name):
     """
@@ -52,14 +52,14 @@ def search(anime, base_url=BASE_URL):
 
 def get_links(name,episodes, source=None) -> 'list[str]':
     if source is not None:
-        source_ep = f"https://gogoanime.pe/{name}-episode-"
+        source_ep = f"{BASE_URL}/{name}-episode-"
         episode_links = [
             f"{source_ep}{i}"
             for i in range(1, episodes + 1)
         ]
         episode_links.insert(0, source)
     else:
-        source_ep = f"https://gogoanime.pe/{name}-episode-"
+        source_ep = f"{BASE_URL}/{name}-episode-"
         episode_links = [
             f"{source_ep}{i}"
             for i in range(1,episodes + 1)

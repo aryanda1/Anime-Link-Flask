@@ -41,7 +41,7 @@ def getEpisodeCount():
     name = data['name']
     uniqueId = data['id']
 
-    source = f"https://gogoanime.pe/category/{name}"
+    source = f"https://www3.gogoanimes.fi/category/{name}"
     try:
         with req.get(source) as res:
             if res.status_code == 200:
